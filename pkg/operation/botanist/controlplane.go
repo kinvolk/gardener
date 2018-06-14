@@ -45,6 +45,12 @@ func (b *Botanist) DeployNamespace() error {
 	return nil
 }
 
+// DeployNetworkPolicy deploys the network policy from the Helm chart to isolate control planes from each
+// others and pods within the control plane.
+func (b *Botanist) DeployNetworkPolicy() error {
+	return b.ApplyChartSeed(filepath.Join(common.ChartPath, "seed-controlplane", "charts", "network-policy"), "network-policy", b.Shoot.SeedNamespace, nil, nil)
+}
+
 // DeployBackupNamespaceFromShoot creates a namespace in the Seed cluster from info in shoot object, which is used to deploy all the backup infrastructure
 // realted resources for shoot cluster. Moreover, the terraform configuration and all the secrets will be
 // stored as ConfigMaps/Secrets.
