@@ -4,7 +4,7 @@ apiserver:
   replicaCount: 1
   serviceAccountName: gardener-apiserver
   image:
-    repository: eu.gcr.io/gardener-project/gardener/apiserver
+    repository: docker.io/albanc/apiserver
     tag: latest
   resources:
     requests:
@@ -52,7 +52,7 @@ controller:
   replicaCount: 1
   serviceAccountName: gardener-controller-manager
   image:
-    repository: eu.gcr.io/gardener-project/gardener/controller-manager
+    repository: docker.io/albanc/controller-manager
     tag: latest
   resources:
     requests:
